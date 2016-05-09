@@ -13,7 +13,7 @@ def adiciona_(request):
         form = FormItemAgenda(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            return redirect("/") 
     else:
         # Exibe formulário em branco
         form = FormItemAgenda()
@@ -24,7 +24,7 @@ def adiciona(request):
         form.save()
         return redirect("/")
     return render(request, "adiciona.html", {'form': form})
-    
+
 def remove(request, nr_item):
     item = get_object_or_404(ItemAgenda, pk=nr_item)
     if request.method=="POST":

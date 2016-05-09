@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block corpo %}
+<form action="" method="post">
+    {% csrf_token %}
+    <b> Remoção de Evento</b> <br><br>
+    <b> {{item.titulo}}<br>
+    </b> <br>
+    {{item.data|date:'d/m/Y'}} às {{item.hora}} <br><br>
+    {{item.descricao}} <br><br>
+    <!--{{ form.as_p }} -->
+    <button type="submit">Remover</button> ou <a href="/"> Cancelar </a>
+</form>
+{% endblock %}

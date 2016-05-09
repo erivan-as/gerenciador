@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block corpo %}
+<a href="/adiciona/">Adicionar novo item</a>
+<ul>
+  {% for item in lista_itens %}
+  <table >
+    <tr>
+      <td>
+        <a href="/remove/{{ item.id }}"> Remover </a>
+         </td>
+          <td>
+            <li>
+             <a href="/item/{{ item.id }}">
+             {{ item.data|date:'l d \d\e F \d\e Y' }} - {{ item.titulo }}
+             </a>
+            </li>
+          </td>
+            <!--{{ item.data|date:'d/m/Y' }} - {{ item.titulo }}-->
+    </tr>
+  </table>
+{% empty %}
+  <li>Sem itens na lista</li>
+{% endfor %}
+</ul>
+{% endblock %}
